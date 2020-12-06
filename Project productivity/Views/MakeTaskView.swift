@@ -11,10 +11,11 @@ import SwiftUI
 struct MakeTaskView: View {
     
     @ObservedObject var task_data: TaskData
-    @State var task_name: String = " "
-    @State var detail: String = " "
-    @State var due_date: Date? = nil
-    @State var image: Image? = nil
+    @State var task_name: String = ""
+    @State var detail: String = ""
+    @State var due_date: Date = Date()
+    @State private var empty_task: Bool = false
+   
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
@@ -23,26 +24,57 @@ struct MakeTaskView: View {
     var body: some View {
         
         VStack{
-            Text("Detail")
-            TextField("detail", text: $detail)
-                .background(Color.gray)
             
-            Spacer()
             
             Text("Task Name")
+            
+            HStack{
+            
             TextField("Task Name", text: $task_name)
                 .background(Color.gray)
+            }
+            
             Spacer()
             
+            Text("Detail")
             
-            Button(action: {task_data.addTask(Task: Task(task_name: task_name, detail: detail));
+            HStack{
+            TextField("detail", text: $detail)
+                .background(Color.gray)
+            }
+            
+            Spacer()
+            
+            HStack{
+                
+                DatePicker("Select a due date",selection: $due_date, in: Date()...)
+                
+            Spacer()
+            }
+            
+            Spacer()
+            
+            Button(action: {
+                
+                
+                if(task_name != "") {
+                
+                task_data.addTask(Task: Task(task_name: task_name, detail: detail));
                 presentationMode.wrappedValue.dismiss()
+                } else {
+                    
+                empty_task = true
+                }
+                
+                
             },
                 label: {
                 Text("Button")
             })
+            .alert(isPresented: $empty_task, content: {
+                Alert(title: Text("Empty Task Name"))
+            })
             
-            Spacer()
             
            
         }

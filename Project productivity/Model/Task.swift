@@ -11,7 +11,6 @@ import SwiftUI
 
 class Task: Identifiable {
     var id = UUID()
-    var image: Image
     var detail: String
     var due_date: Date
     var task_name: String
@@ -19,7 +18,12 @@ class Task: Identifiable {
     init(task_name: String, detail: String) {
         self.task_name = task_name
         self.due_date = Date()
-        self.image = Image("bookmark")
+        self.detail = detail
+    }
+    
+    init(task_name: String, detail: String, due_date: Date) {
+        self.task_name = task_name
+        self.due_date = due_date
         self.detail = detail
     }
     
@@ -48,6 +52,15 @@ class TaskData: ObservableObject {
     func completeTask(cid: UUID) {
         tasks = tasks.filter{ $0.id != cid}
     }
+    
+    func sortByDate(){
+        tasks.sort(by: {$0.due_date < $1.due_date})
+    }
+    
+    func sortByName(){
+        tasks.sort(by: {$0.task_name < $1.task_name})
+    }
+    
     
 }
     

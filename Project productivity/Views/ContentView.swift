@@ -19,24 +19,44 @@ struct ContentView: View {
         
         NavigationView{
             VStack{
-                Text("To Do List")
-                        .padding()
+
+               
+                HStack{
+                    Button(action: {task_data.sortByDate()}, label: {
+                        Text("Sort by Date")
+                    })
+                    Button(action: {task_data.sortByName()}, label: {
+                        Text("Sort by Name")
+                    })
+                    
+                }
                 
             ScrollView(){
                 LazyVStack{
                     ForEach(task_data.tasks, id: \.id) {
                         x in
                         HStack{
-                            Button(action: {task_data.completeTask(cid: x.id)}, label: {
-                                Text("Complete")
-                            })
+                            Spacer()
+                            
+                            VStack {
+                                
+                                Button(action: {task_data.completeTask(cid: x.id)}, label: {
+                                    Image(systemName: "checkmark")
+                                })
+                            }
+                            
                         Spacer()
-                            Text(x.task_name)
-                                .padding()
+                
+                            NavigationLink(
+                                destination: TaskView(task: x),
+                                label: { Text(x.task_name)
+                                            .padding()
+                                })
+    
+                        Spacer()
                         }
                     
                         }
-                    Spacer()
                 }
             }
                 Spacer()
@@ -49,9 +69,16 @@ struct ContentView: View {
             
             Spacer()
             }
-
+            .navigationBarHidden(true)
+            
         }
-        .navigationViewStyle(DefaultNavigationViewStyle())
+       
+        
+        
+        
+        
+        
+        
     }
     
     

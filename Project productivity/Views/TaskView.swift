@@ -9,12 +9,35 @@ import SwiftUI
 
 struct TaskView: View {
     
-    @ObservedObject var task_data: TaskData
+    var task: Task
     
     
     var body: some View {
-        Text("Hello, lol!")
-            .padding()
+        VStack{
+            
+            Spacer()
+            
+            HStack{
+                Text(task.task_name)
+            }
+            
+            HStack{
+                Text(task.due_date, style: .date)
+            }
+            
+            Spacer()
+            
+            HStack{
+                VStack{
+                    Text("Details")
+                    Text(task.detail)
+                }
+                
+            }
+            Spacer()
+            
+            
+        }
     }
     
     
@@ -24,6 +47,6 @@ struct TaskView: View {
 
 struct TaskView_Previews: PreviewProvider {
     static var previews: some View {
-        TaskView(task_data: TaskData())
+        TaskView(task:  Task(task_name: "Eat out", detail: "lol", due_date: Date()))
     }
 }
