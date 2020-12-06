@@ -48,10 +48,12 @@ struct ContentView: View {
                         Spacer()
                 
                             NavigationLink(
-                                destination: TaskView(task: x),
+                                destination: TaskView(task: x, task_data: task_data),
                                 label: { Text(x.task_name)
                                             .padding()
                                 })
+                                
+                            
     
                         Spacer()
                         }

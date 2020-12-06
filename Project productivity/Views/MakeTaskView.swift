@@ -47,7 +47,8 @@ struct MakeTaskView: View {
             
             HStack{
                 
-                DatePicker("Select a due date",selection: $due_date, in: Date()...)
+                DatePicker("Select a due date",selection: $due_date,
+                           in: due_date...)
                 
             Spacer()
             }
@@ -81,8 +82,13 @@ struct MakeTaskView: View {
         
     }
     
-    
+
+
 }
+    
+    
+
+
 
 struct MakeTaskView_Previews: PreviewProvider {
     static var previews: some View {
