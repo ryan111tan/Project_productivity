@@ -27,6 +27,17 @@ class Task: Identifiable {
         self.detail = detail
     }
     
+    func changeName(name: String) {
+        self.task_name = name
+    }
+    
+    func changeDate(date: Date){
+        self.due_date = date
+    }
+    
+    func changeDetail(detail: String) {
+        self.detail = detail
+    }
 }
 
 class TaskData: ObservableObject {

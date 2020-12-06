@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E682D721257CE337008A69D2 /* EditTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E682D720257CE337008A69D2 /* EditTaskView.swift */; };
 		E6DDF1E925786B210062B564 /* Project_productivityApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDF1E825786B210062B564 /* Project_productivityApp.swift */; };
 		E6DDF1EB25786B210062B564 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6DDF1EA25786B210062B564 /* ContentView.swift */; };
 		E6DDF1ED25786B220062B564 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6DDF1EC25786B220062B564 /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E682D720257CE337008A69D2 /* EditTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTaskView.swift; sourceTree = "<group>"; };
 		E6DDF1E525786B210062B564 /* Project productivity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project productivity.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6DDF1E825786B210062B564 /* Project_productivityApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project_productivityApp.swift; sourceTree = "<group>"; };
 		E6DDF1EA25786B210062B564 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				E6DDF21625788F370062B564 /* TaskView.swift */,
 				E6DDF21E25788FBF0062B564 /* MakeTaskView.swift */,
 				E6DDF1EA25786B210062B564 /* ContentView.swift */,
+				E682D720257CE337008A69D2 /* EditTaskView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				E6DDF21725788F370062B564 /* TaskView.swift in Sources */,
 				E6DDF21F25788FBF0062B564 /* MakeTaskView.swift in Sources */,
 				E6DDF22C257895570062B564 /* Task.swift in Sources */,
+				E682D721257CE337008A69D2 /* EditTaskView.swift in Sources */,
 				E6DDF1EB25786B210062B564 /* ContentView.swift in Sources */,
 				E6DDF1E925786B210062B564 /* Project_productivityApp.swift in Sources */,
 			);
