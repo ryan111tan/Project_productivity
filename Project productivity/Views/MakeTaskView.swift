@@ -15,7 +15,9 @@ struct MakeTaskView: View {
     @State var detail: String = ""
     @State var due_date: Date = Date()
     @State private var empty_task: Bool = false
+    @State private var name_too_long: Bool = false
    
+
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
@@ -25,14 +27,16 @@ struct MakeTaskView: View {
         
         VStack{
             
+            Spacer()
             
             Text("Task Name")
             
             HStack{
             
             TextField("Task Name", text: $task_name)
-                .background(Color.gray)
-            }
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                
+            }.padding()
             
             Spacer()
             
@@ -40,23 +44,23 @@ struct MakeTaskView: View {
             
             HStack{
             TextField("detail", text: $detail)
-                .background(Color.gray)
-            }
-            
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+
+            }.padding()
             Spacer()
             
             HStack{
                 
-                DatePicker("Select a due date",selection: $due_date,
+                Text("Due Date")
+                Spacer()
+                DatePicker("",selection: $due_date,
                            in: due_date...)
                 
             Spacer()
-            }
+            }.padding()
             
-            Spacer()
-            
+                    
             Button(action: {
-                
                 
                 if(task_name != "") {
                 
@@ -68,17 +72,32 @@ struct MakeTaskView: View {
                 }
                 
                 
+                
+                
+                
+                
+                
             },
                 label: {
-                Text("Button")
+                Text("Done")
             })
+            .padding()
+            .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+            .background(Color.backgroundGray)
+            .cornerRadius(40)
             .alert(isPresented: $empty_task, content: {
                 Alert(title: Text("Empty Task Name"))
             })
+            .offset(y: 35)
             
+            Spacer()
             
-           
-        }
+        }.background(Color.backgroundOrange)
+        .navigationBarTitle(Text("New Task")                    .font(.title), displayMode: .inline)         
+        
+
+        
+       
         
     }
     

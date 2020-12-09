@@ -142,9 +142,9 @@
 		E6DDF22325788FE40062B564 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E6DDF1EA25786B210062B564 /* ContentView.swift */,
 				E6DDF21625788F370062B564 /* TaskView.swift */,
 				E6DDF21E25788FBF0062B564 /* MakeTaskView.swift */,
-				E6DDF1EA25786B210062B564 /* ContentView.swift */,
 				E682D720257CE337008A69D2 /* EditTaskView.swift */,
 			);
 			path = Views;

@@ -18,47 +18,38 @@ struct TaskView: View {
     
     var body: some View {
         
-        NavigationView{
-            
+     
             
             
             VStack{
                 
                 
-                Spacer()
-                
-                HStack{
-                    Text(task.task_name)
-                }
-                
                 HStack{
                     Text(task.due_date, style: .date)
-                }
+                }.padding()
                 
                 Spacer()
                 
                 HStack{
                     VStack{
-                        Text("Details")
-                        Text(task.detail)
+                        Text(task.detail).textFieldStyle(CustomTextField())
                     }
                     
-                }
+                }.padding()
+                .offset(y: -50)
                 Spacer()
-                
-                HStack{
-                    Button(action: {presentationMode.wrappedValue.dismiss()}, label: {
-                        Text("Home")
-                    })
-                }
+
                 
                 NavigationLink(
                     destination: EditTaskView(task: task, newName: task.task_name, newDate:task.due_date, newDetail: task.detail, task_data: task_data),
                     isActive: $editTask,
                     label: {})
                 
+                
             }
-            .padding(.horizontal)
+            .frame(width: UIScreen.main.bounds.width)
+            .navigationBarTitle(Text(task.task_name)                    .font(.title), displayMode: .inline)
+            
             .toolbar(content: {
             ToolbarItem(){
                 Button(action: {self.editTask = true;}, label: {
@@ -67,9 +58,12 @@ struct TaskView: View {
                     }
             })
             
-        }.navigationBarHidden(true)
+            
+            .background(Color.backgroundOrange)
+
         
         
+
         
     }
     
@@ -78,9 +72,10 @@ struct TaskView: View {
 }
     
 
-//
-//struct TaskView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        TaskView(task:  Task(task_name: "Eat out", detail: "lol", due_date: Date(timeIntervalSinceNow: 100000)))
-//    }
-//}
+
+struct TaskView_Previews: PreviewProvider {
+    static var previews: some View {
+        TaskView(task:  Task(task_name: "Eat out", detail: "lol", due_date: Date(timeIntervalSinceNow: 100000)), task_data: TaskData())
+    }
+}
+

@@ -43,7 +43,6 @@ class Task: Identifiable {
 class TaskData: ObservableObject {
         @Published var tasks: [Task] =
         [
-        
             Task(task_name: "Eat out", detail: "lol"),
             Task(task_name: "Homework 3",  detail: "lol"),
             Task(task_name: "Homework 2",  detail: "lol"),
@@ -54,7 +53,6 @@ class TaskData: ObservableObject {
             Task(task_name: "Homework 1",  detail: "lol"),
             Task(task_name: "Yes",  detail: "lol")
         ]
-    
     
     func addTask(Task: Task) {
         tasks.append(Task)
